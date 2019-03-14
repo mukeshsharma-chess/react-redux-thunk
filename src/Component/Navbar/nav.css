@@ -1,0 +1,96 @@
+.App{
+    text-align: center;
+  }
+  
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .header{
+  
+    padding:0;
+    margin:0;
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    background-color: rgb(179, 54, 54);
+  }
+  
+  
+  .right{
+      padding:0px;
+      margin:0px;
+      list-style: none;
+      display:block;
+      margin:2px;
+      
+      font-size: 16px;
+  }
+  
+  .anchor{
+   
+    float: right;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 30px;
+    font-size: 15px;
+  }
+  
+  .title{
+    margin-left: 20px;
+    color: white;
+    margin-top: 0;
+    float: left;
+    font-size: 20px;
+  }
+  
+  
+  .textfield{
+    display: flex;
+    width:200px;
+    height: 32px;
+  }
+  .drag {
+    background-color: rgb(47, 80, 47);
+    color:white;
+    font-size: 16px;
+    height: 25px;
+    margin-left: 450px;
+  }
+  .card{
+    height: 500px;
+    width: 60%;
+    
+  }
+  
+  .item{
+    width:150px;
+    height: 32px;
+  }
+  
+  
