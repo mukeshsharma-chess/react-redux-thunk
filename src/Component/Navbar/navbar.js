@@ -2,8 +2,6 @@ import React from 'react'
 
 import { Link } from 'react-router-dom';
 import './nav.css'
-// import allPost from '../demo/allPost'
-// import postForm from '../demo/postForm';
  
 const Navbar = () => {
     return(
