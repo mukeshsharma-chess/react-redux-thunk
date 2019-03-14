@@ -34,14 +34,6 @@ class SignUp extends Component{
             passowrd: '',
         })
         
-        // fetch('http://localhost:3000/Users',{
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-type' : 'application/json'
-        //     },
-        //     body: JSON.stringify(postData)
-        // }).then(res => res.json())
-        // .then(data => console.log(data));
     }
 
     render(){
