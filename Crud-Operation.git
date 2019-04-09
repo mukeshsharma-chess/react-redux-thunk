@@ -1,0 +1,114 @@
+import React,{ Component } from 'react'
+
+
+class CrudOpration extends Component {
+    state = {
+        index: '',
+        act : 0,
+        datas : []
+    }
+    componentDidMount(){
+        this.refs.name.focus()
+
+    }
+    
+    fSubmit = e => {
+        e.preventDefault();
+        const  {datas}  = this.state;
+        const name = this.refs.name.value;
+        const address =this.refs.address.value;
+       if(this.state.act === 0)
+       {
+        const data = {name,address}
+        datas.push(data);
+       }else{
+           let index = this.state.index;
+           datas[index].name = name;
+           datas[index].address = address;
+        }
+           this.setState({
+               datas:datas,
+               act:0
+           })
+           
+        this.refs.myForm.reset();
+        this.refs.name.focus()
+       
+    }
+
+    // fSubmit = e =>{
+    //     e.preventDefault();
+    //     const  {datas}  = this.state;
+    //     const name = this.refs.name.value;
+    //     const address =this.refs.address.value;
+    //     const data = {name,address}
+
+    //     datas.push(data);
+
+    //     this.setState({
+    //         datas:datas
+    //     });
+
+    //     this.refs.myForm.reset();
+    //     this.refs.name.focus()
+    // }
+    fDelete = id =>{
+        const { datas } = this.state;
+        datas.splice(id,1) ;
+        this.setState({
+            datas:datas
+        })
+        this.refs.myForm.reset();
+        this.refs.name.focus();
+    }
+
+    fEdit = id =>{
+        const data = this.state.datas[id];
+        this.refs.name.value=data.name;
+        this.refs.address.value=data.address;
+        this.setState({
+            act : 1,
+            index : id
+        })
+    }
+
+    render(){
+        const {datas} =this.state;
+        return(
+            <div style={{height:"100%", margin:50}}>
+                <form ref="myForm" style={{margin:50}}>
+                    <input type="text" ref="name" placeholder="Enter Your Name..." /><br></br><br></br>
+                    <input type="text" ref="address" placeholder="Enter Address..." /><br></br><br></br>
+                    <button onClick={this.fSubmit}>Add</button>
+                </form><br></br>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>Sr.No.</td>
+                            <td>Name</td>
+                            <td>Address</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            datas.map((item,id) => (
+                                <tr key={id}>
+                                    <td>{id+1}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.address}</td>
+                                    <td><button onClick={() => this.fEdit(id)}>Edit</button></td>
+                                    <td><button onClick={()=>this.fDelete(id)}>Delete</button></td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+}
+
+
+export default CrudOpration;
